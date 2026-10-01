@@ -1,0 +1,50 @@
+.app-frame { min-height: 100vh; display: flex; }
+.sidebar { position: fixed; z-index: 30; inset: 0 auto 0 0; width: 236px; display: flex; flex-direction: column; padding: 23px 14px 16px; background: var(--pine-dark); color: #fff; }
+.brand { display: flex; align-items: center; gap: 11px; padding: 0 9px 27px; color: inherit; text-decoration: none; }
+.brand-mark { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 7px; background: var(--lime); color: var(--pine-dark); font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 800; }
+.brand-copy { display: flex; flex-direction: column; line-height: 1.25; }
+.brand-copy strong { font-size: 15px; letter-spacing: 0; }
+.brand-copy small { margin-top: 4px; color: #a6beb0; font-size: 8px; font-weight: 700; letter-spacing: 1.05px; }
+.nav-caption { padding: 10px 10px 9px; color: #91a99a; font-size: 9px; font-weight: 700; letter-spacing: 1.35px; }
+.primary-nav { display: flex; flex-direction: column; gap: 4px; }
+.primary-nav a { min-height: 42px; display: flex; align-items: center; gap: 11px; padding: 0 11px; border-radius: 4px; color: #c1d0c5; text-decoration: none; font-size: 12px; font-weight: 500; transition: background .15s ease, color .15s ease; }
+.primary-nav a:hover { background: rgb(255 255 255 / 7%); color: #fff; }
+.primary-nav a.active { background: #315b49; color: #fff; box-shadow: inset 3px 0 var(--lime); }
+.nav-icon { width: 20px; color: #9fb9a7; text-align: center; font-size: 17px; }
+.primary-nav a.active .nav-icon { color: var(--lime); }
+.sidebar-bottom { display: flex; align-items: center; gap: 10px; margin-top: auto; padding: 14px 10px 4px; border-top: 1px solid rgb(255 255 255 / 12%); }
+.sidebar-bottom > span:last-child { display: flex; flex-direction: column; }
+.sidebar-bottom strong { font-size: 10px; font-weight: 600; }
+.sidebar-bottom small { margin-top: 3px; color: #98b1a1; font-size: 9px; }
+.live-dot { width: 8px; height: 8px; border-radius: 50%; background: #a5d47c; box-shadow: 0 0 0 3px rgb(165 212 124 / 15%); }
+.workspace { width: calc(100% - 236px); min-height: 100vh; display: flex; flex-direction: column; margin-left: 236px; }
+.topbar { height: 66px; display: flex; flex: 0 0 auto; align-items: center; justify-content: space-between; padding: 0 34px; border-bottom: 1px solid var(--line); background: rgb(255 255 255 / 88%); }
+.topbar-context { display: flex; flex-direction: column; line-height: 1.25; }
+.topbar-context > span { color: #89958d; font-size: 8px; font-weight: 700; letter-spacing: 1.25px; }
+.topbar-context strong { margin-top: 4px; color: var(--ink); font-size: 12px; }
+.topbar-right { display: flex; align-items: center; gap: 15px; }
+.date-stamp { color: var(--muted); font-size: 11px; }
+.avatar { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid #d5e3d8; border-radius: 50%; background: var(--mint); color: var(--pine); font-size: 9px; font-weight: 700; }
+.main-content { width: min(100%, 1440px); flex: 1 0 auto; margin: 0 auto; padding: 29px 34px 36px; }
+.app-footer { display: flex; justify-content: space-between; gap: 12px; padding: 15px 34px; border-top: 1px solid var(--line); color: #89958d; font-size: 9px; }
+.menu-toggle, .mobile-scrim { display: none; }
+
+@media (max-width: 900px) {
+	.sidebar { width: 210px; }
+	.workspace { width: calc(100% - 210px); margin-left: 210px; }
+	.main-content { padding: 25px 22px 30px; }
+	.topbar { padding: 0 22px; }
+	.app-footer { padding-inline: 22px; }
+}
+@media (max-width: 680px) {
+	.sidebar { z-index: 41; width: 254px; transform: translateX(-100%); transition: transform .2s ease; box-shadow: none; }
+	.sidebar.sidebar-open { transform: translateX(0); box-shadow: 15px 0 45px rgb(10 31 22 / 20%); }
+	.workspace { width: 100%; margin-left: 0; }
+	.topbar { height: 58px; justify-content: flex-start; gap: 12px; padding: 0 15px; }
+	.menu-toggle { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--pine); cursor: pointer; }
+	.topbar-right { margin-left: auto; }
+	.date-stamp { display: none; }
+	.main-content { padding: 23px 14px 28px; }
+	.app-footer { padding: 13px 14px; font-size: 8px; }
+	.mobile-scrim { position: fixed; z-index: 40; inset: 0; display: block; border: 0; background: rgb(15 31 24 / 42%); }
+}
